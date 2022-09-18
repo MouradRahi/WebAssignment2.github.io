@@ -11,10 +11,12 @@
         <table>
             <tr>
                 <th>Enter your username:</th>
+                <th>Enter your password:</th>
 
             </tr>
             <tr>
                 <th><input id="name" type="text"></th>
+                <th><input id="pass" type="password"></th>
 
             </tr>
         </table>
@@ -22,7 +24,7 @@
             <tr>
                 <th>
 
-                    <button id="button" onclick="search()">LogIn</button>
+                    <button id="button">LogIn</button>
 
                 </th>
             </tr>
@@ -39,23 +41,38 @@
     </div>
     <script>
 
-        let answer = 0;
-        let count = 0;
-        
-        
-        function search() {
-            console.log(localStorage.key(count));
-            
-            while (localStorage.key(count) != null) {
-                answer = localStorage.key(count);
-                if (answer == document.getElementById("name").value) {
-                    location.assign("game.html");
-                }
+        const name = document.getElementById("name");
+        const pass = document.getElementById("pass");
+        const button = document.getElementById("button");
+        let flag = false;
+        button.addEventListener("click", () => {
 
-                count++;
+            const username = name.value;
+            if (username == "") {
+                flag = true;
             }
-            count=0;
-        }
+            const password = pass.value;
+            if (password == "") {
+                flag = true;
+            }
+            if (flag == false) {
+                const user = JSON.parse(localStorage.getItem(username));
+                if (user == null) {
+                    h3.innerHTML = "User does not exist";
+
+                }
+                else {
+                    if (user["password"] == password) {
+                        localStorage.setItem("currentUser", username);
+                        location.assign("game.html");
+                    }
+                    
+
+                }
+            }
+            
+
+        });
 
 
     </script>

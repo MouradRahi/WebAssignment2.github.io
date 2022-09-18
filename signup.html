@@ -1,48 +1,74 @@
 <html>
-    <head>
-        <title>SignUp!!</title>
-        <link href="styles.css" rel="stylesheet" />
-    </head>
 
-    <body>
-        <h1>Sign Up:</h1>
-        <div>
-            <table>
-                <tr>
-                    <th>Enter your username:</th>
-                    
-                    
-                </tr>
-                <tr>
-                    <th><input id="name" type="text"></th>
-                    
-                    
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <th>
-                        <a href="game.html">
-                            <button id="button" onclick="clickMe()">SignUp</button>
-                        </a>
-                    </th>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <th>Create an account:</th>
-                </tr>
-                <tr>
-                    <td><a href="login.html">Log In!</a></td>
-                </tr>
-            </table>
-           
-        </div>
-        <script>
-            function clickMe(){
-                localStorage.setItem(document.getElementById("name").value,"username");
-                
+<head>
+    <title>SignUp!!</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Sign Up:</h1>
+    <div>
+        <table>
+            <tr>
+                <th>Enter your username:</th>
+                <th>Enter a password:</th>
+
+            </tr>
+            <tr>
+                <th><input id="name" type="text"></th>
+                <th><input id="pass" type="password"></th>
+
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>
+                    <a href="game.html">
+                        <button id="button" onclick="clickMe()">SignUp</button>
+                    </a>
+                </th>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Create an account:</th>
+            </tr>
+            <tr>
+                <td><a href="login.html">Log In!</a></td>
+            </tr>
+        </table>
+
+    </div>
+    <script>
+        
+        const button = document.getElementById("button");
+        const name = document.getElementById("name");
+        const pass = document.getElementById("pass");
+        let flag = false;
+        button.addEventListener("click", () => {
+            const username = name.value;
+            if (username == "") {
+                flag = true;
             }
-        </script>
-    </body>
+            const password = pass.value;
+            if (password == "") {
+                flag = true;
+            }
+            if (flag == false) {
+                if (JSON.parse(localStorage.getItem(username)) != null) {
+                    h3.innerHTML = "User Already Exist proceed to login!";
+
+
+                } else {
+                    const user = { name: username, pass: password, score: 0 }
+                    localStorage.setItem(username, JSON.stringify(user));
+                    location.assign("index.html");
+                }
+            }
+            
+
+        });
+    </script>
+</body>
+
 </html>
