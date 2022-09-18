@@ -14,11 +14,11 @@ window.onload= ()=>{
 	  	
 	}
 
-	if (document.getElementById("status").textContent=="You lose your current score is: "+score){
+	if (document.getElementById("status").value!="You lose your current score is: "+score-10){
 
-		document.getElementById("end").onmousemove =  function(event) {myFunction(event)};
+		document.getElementById("end").onmousemove =  function(event) {myFunc(event)};
 
-		function myFunction(e) {
+		function myFunc(e) {
 			score=score+5;
 			document.getElementById("status").innerText="You win your current score is: "+score;
 	  		pointer_x = e.clientX;

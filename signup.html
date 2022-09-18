@@ -14,14 +14,18 @@
                     <th>Enter your last name:</th>
                 </tr>
                 <tr>
-                    <th><input type="text"></th>
+                    <th><input id="fname" type="text"></th>
                     
-                    <th><input type="text"></th>
+                    <th><input id="lname" type="text"></th>
                 </tr>
             </table>
             <table>
                 <tr>
-                    <th><button>SignUp</button></th>
+                    <th>
+                        <a href="game.html">
+                            <button id="button">SignUp</button>
+                        </a>
+                    </th>
                 </tr>
             </table>
             <table>
@@ -35,7 +39,8 @@
            
         </form>
         <script>
-
+            localStorage.setItem("firstname",document.getElementById("fname").textContent);
+            localStorage.setItem("lastname",document.getElementById("lname").textContent);
         </script>
     </body>
 </html>

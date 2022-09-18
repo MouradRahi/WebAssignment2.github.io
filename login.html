@@ -14,14 +14,18 @@
                     <th>Enter your last name:</th>
                 </tr>
                 <tr>
-                    <th><input type="text"></th>
+                    <th><input id="fname" type="text"></th>
                     
-                    <th><input type="text"></th>
+                    <th><input id="lname" type="text"></th>
                 </tr>
             </table>
             <table>
                 <tr>
-                    <th><button>LogIn</button></th>
+                    <th>
+                        <a href="game.html">
+                            <button id="button">LogIn</button>
+                        </a>
+                    </th>
                 </tr>
             </table>
             <table>
@@ -35,7 +39,23 @@
            
         </form>
         <script>
-
+            let answer=0;
+            let count=0;
+            const button =document.getElementById("button");
+            button.onclick = search();
+            function search(){
+                while (localStorage.key(count)!=null){
+                    answer = localStorage.getItem(count);
+                    if(answer==document.getElementById("fname").textContent){
+                        button.disabled = false;
+                        return console.log("login success");
+                    }
+                    return console.log("login fail");
+                    count++;
+                }
+            }
+            
+            
         </script>
     </body>
 </html>
