@@ -1,61 +1,63 @@
 <html>
-    <head>
-        <title>Log In!!</title>
-        <link href="styles.css" rel="stylesheet" />
-    </head>
 
-    <body>
-        <h1>Log In:</h1>
-        <div>
-            <table>
-                <tr>
-                    <th>Enter your first name:</th>
-                    
-                    <th>Enter your last name:</th>
-                </tr>
-                <tr>
-                    <th><input id="fname" type="text"></th>
-                    
-                    <th><input id="lname" type="text"></th>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <th>
-                        <a href="game.html">
-                            <button id="button">LogIn</button>
-                        </a>
-                    </th>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <th>Create an account:</th>
-                </tr>
-                <tr>
-                    <td><a href="signup.html">Sign Up!</a></td>
-                </tr>
-            </table>
-           
-        </div>
-        <script>
-            let answer=0;
-            let count=0;
-            const button =document.getElementById("button");
-            button.onclick = search();
-            function search(){
-                while (localStorage.key(count)!=null){
-                    answer = localStorage.getItem(count);
-                    if(answer==document.getElementById("fname").textContent){
-                        button.disabled = false;
-                        return console.log("login success");
-                    }
-                    return console.log("login fail");
-                    count++;
+<head>
+    <title>Log In!!</title>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Log In:</h1>
+    <div>
+        <table>
+            <tr>
+                <th>Enter your username:</th>
+
+            </tr>
+            <tr>
+                <th><input id="name" type="text"></th>
+
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>
+
+                    <button id="button" onclick="search()">LogIn</button>
+
+                </th>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Create an account:</th>
+            </tr>
+            <tr>
+                <td><a href="signup.html">Sign Up!</a></td>
+            </tr>
+        </table>
+
+    </div>
+    <script>
+
+        let answer = 0;
+        let count = 0;
+        
+        
+        function search() {
+            console.log(localStorage.key(count));
+            
+            while (localStorage.key(count) != null) {
+                answer = localStorage.key(count);
+                if (answer == document.getElementById("name").value) {
+                    location.assign("game.html");
                 }
+
+                count++;
             }
-            
-            
-        </script>
-    </body>
+        }
+
+
+    </script>
+</body>
+
 </html>

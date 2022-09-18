@@ -9,21 +9,21 @@
         <div>
             <table>
                 <tr>
-                    <th>Enter your first name:</th>
+                    <th>Enter your username:</th>
                     
-                    <th>Enter your last name:</th>
+                    
                 </tr>
                 <tr>
-                    <th><input id="fname" type="text"></th>
+                    <th><input id="name" type="text"></th>
                     
-                    <th><input id="lname" type="text"></th>
+                    
                 </tr>
             </table>
             <table>
                 <tr>
                     <th>
                         <a href="game.html">
-                            <button id="button">SignUp</button>
+                            <button id="button" onclick="clickMe()">SignUp</button>
                         </a>
                     </th>
                 </tr>
@@ -39,8 +39,10 @@
            
         </div>
         <script>
-            localStorage.setItem("firstname",document.getElementById("fname").textContent);
-            localStorage.setItem("lastname",document.getElementById("lname").textContent);
+            function clickMe(){
+                localStorage.setItem(document.getElementById("name").value,"username");
+                
+            }
         </script>
     </body>
 </html>
