@@ -1,0 +1,16 @@
+body{
+    background-color: azure;
+}
+h1{
+    text-align: center;
+}
+form{
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: lightgrey;
+  }
+  table{
+    margin-left: 25%;
+    margin-top: -20px;
+    
+  }
