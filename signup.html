@@ -23,9 +23,9 @@
         <table>
             <tr>
                 <th>
-                    <a href="game.html">
-                        <button id="button" onclick="clickMe()">SignUp</button>
-                    </a>
+                    
+                        <button id="button">SignUp</button>
+                    
                 </th>
             </tr>
         </table>
@@ -62,7 +62,7 @@
                 } else {
                     const user = { name: username, pass: password, score: 0 }
                     localStorage.setItem(username, JSON.stringify(user));
-                    location.assign("index.html");
+                    location.assign("login.html");
                 }
             }
             

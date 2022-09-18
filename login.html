@@ -57,20 +57,17 @@
             }
             if (flag == false) {
                 const user = JSON.parse(localStorage.getItem(username));
-                if (user == null) {
-                    h3.innerHTML = "User does not exist";
 
-                }
-                else {
-                    if (user["password"] == password) {
-                        localStorage.setItem("loggedUser", username);
-                        location.assign("game.html");
-                    }
-                    
 
+                if (user["pass"] == password) {
+                    localStorage.setItem("loggedUser", username);
+                    location.assign("game.html");
                 }
+
+
+
             }
-            
+
 
         });
 
