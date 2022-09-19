@@ -7,6 +7,11 @@ window.onload = () => {
 	const game = document.getElementById("game");
 	const username=localStorage.getItem("loggedUser");
 	const user=JSON.parse(localStorage.getItem(username));
+	score=user["score"];
+	start.addEventListener("click", ()=>{
+		score=0;
+		user["score"]=score;
+	});
 	start.addEventListener("mousemove", () => {
 		boundaries[0].style.backgroundColor = "#eeeeee";
 		boundaries[1].style.backgroundColor = "#eeeeee";
